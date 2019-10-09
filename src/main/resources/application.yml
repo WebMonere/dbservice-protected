@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/webmonere_main"
+    username: webmonere
+    password: RajdeepDas0526
+
+
+    auth0:
+      audience: https://localhost/
+    spring:
+      security:
+        oauth2:
+          resourceserver:
+            jwt:
+              issuer-uri: https://rajdeepdev.auth0.com/
+

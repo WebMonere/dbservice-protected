@@ -6,4 +6,4 @@ before_script:
       - psql -c 'create database webmonere_main;' -U postgres
 install: true
 
-script: sudo ./mvnw clean install
+script:  mvn verify -B

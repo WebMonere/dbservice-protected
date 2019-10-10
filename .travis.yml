@@ -4,6 +4,8 @@ services:
   - postgresql
 before_script:
       - psql -c 'create database webmonere_main;' -U postgres
+before_install:
+  - chmod +x mvnw
 install: true
 
 script:   ./mvnw clean install

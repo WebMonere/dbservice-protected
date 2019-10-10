@@ -5,4 +5,6 @@
 DB_USER =
 
 DB_PASS =
- 
+
+### To Skip a Build
+[skip travis] Update README at commit messgae

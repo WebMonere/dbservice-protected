@@ -20,14 +20,14 @@ public class DbserviceApplicationTests {
 	@Autowired
 	private WebTestClient webClient;
 
-	@Test
+	/*@Test
 	public void contextLoads() throws UnirestException {
 		HttpResponse<String> response = (HttpResponse<String>) Unirest.get("http://localhost/api/private")
 				.header("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlFVTTBRekUwTWtSQk5qZEJNRE16TWtNMk0wSTNOamRDTkRCQlEwSkZOVU5GT0RSR1FqWXhSQSJ9.eyJpc3MiOiJodHRwczovL3JhamRlZXBkZXYuYXV0aDAuY29tLyIsInN1YiI6IkFRUUZQczZhbGhkbEdQWHkxaEhxNjZKWkExSnFkWXVEQGNsaWVudHMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdC8iLCJpYXQiOjE1NzA2NDU3NTcsImV4cCI6MTU3MDczMjE1NywiYXpwIjoiQVFRRlBzNmFsaGRsR1BYeTFoSHE2NkpaQTFKcWRZdUQiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.EGYQSorcFuUqRtacpW-MgAM_XnMPyRaiY_I26YbRnY1n_WiPcJ1Kn3uyEdFYGXXJmwzUZnecT6W6YNn2Vm40lkdJB66d8MAdiYxjCwlSwMqNAW4Nux9h15nbqPmn9XXww3YtHsfykDSk6BDuf_fO3yTRQb0V0E4_vyCsEkFtJE7mgJEBRwc2ggYIq-ePvO6tSWKCHJAL9tIkx_Ou1QPVu_RusOAd0w90sTYfL_Na19bMk4dj9hN-2lBkqr1gL7pIOrn0Ul4CdNLhtsepNV5OX2DjGsvcpVU-_0aQ6LIOV0kl9grw6U69fej3Bj-XGDQfMqMGZQUlNU3ZX-jdmvTItQ")
 				.asString();
 
 		System.out.println(response.getBody());
-	}
+	}*/
 
 	//Check http://localhost/ has public access
 	@Test

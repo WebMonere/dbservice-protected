@@ -1,4 +1,4 @@
-FROM maven:3.5-jdk-8 as maven 
+FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 
 COPY mvnw .

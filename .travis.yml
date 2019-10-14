@@ -2,10 +2,13 @@ language: java
 jdk: oraclejdk11
 services:
   - postgresql
+  - docker
 before_script:
       - psql -c 'create database webmonere_main;' -U postgres
+      - psql -c "CREATE USER webmonere WITH PASSWORD 'RajdeepDas0526';"
 before_install:
   - chmod +x mvnw
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 # cache the build tool's caches
 cache:
   directories:
@@ -13,4 +16,7 @@ cache:
     - $HOME/.gradle
 install: true
 
-script:   ./mvnw clean install
+script:
+  - ./mvnw clean test
+  - docker build -t rajdeepdas/dbservice-protected .
+  - docker push rajdeepdas/dbservice-protected

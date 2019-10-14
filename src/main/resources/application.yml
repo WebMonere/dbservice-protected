@@ -5,8 +5,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: "jdbc:postgresql://localhost:5432/webmonere_main"
-    username: ${DB_USER}
-    password: ${DB_PASS}
+    username: webmonere
+    password: RajdeepDas0526
 
 
     auth0:

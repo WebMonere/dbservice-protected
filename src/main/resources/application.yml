@@ -4,9 +4,9 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: "jdbc:postgresql://localhost:5432/webmonere_main"
-    username: webmonere
-    password: RajdeepDas0526
+    url: "jdbc:postgresql://192.168.0.102:5432/webmonere_main"
+    username: ${DB_USER}
+    password: ${DB_PASS}
 
 
     auth0:

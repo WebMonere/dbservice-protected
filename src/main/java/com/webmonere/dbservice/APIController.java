@@ -1,5 +1,6 @@
 package com.webmonere.dbservice;
 
+
 import com.webmonere.dbservice.model.Hostmapping;
 import com.webmonere.dbservice.model.Message;
 import com.webmonere.dbservice.model.User;
@@ -19,29 +20,32 @@ public class APIController {
 
     @Autowired
     HostNameMappingRepository hostNameMappingRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping(value = "/uids/{hostnameid}")
     public ArrayList<String> getAllUserIds(@PathVariable String hostnameid) {
 
         List<Hostmapping> hostmappings;
         ArrayList<String> usids = new ArrayList<>();
-
         hostmappings = hostNameMappingRepository.findByhostnameId(Long.parseLong(hostnameid));
-
-        for (Hostmapping hm : hostmappings)
-        {
+        for (Hostmapping hm : hostmappings) {
             usids.add(hm.getUserId().toString());
         }
-
-            return usids;
-
+        return usids;
     }
 
     @GetMapping(value = "/public/{hostnameid}")
     public List<Hostmapping> publicEndpoint(@PathVariable String hostnameid) {
 
-        return  hostNameMappingRepository.findByhostnameId(Long.parseLong(hostnameid));
+        return hostNameMappingRepository.findByhostnameId(Long.parseLong(hostnameid));
     }
+
+    @GetMapping(value ="/email/{email}")
+    public User getUserByEmail(@PathVariable String email){
+        return userRepository.findByEmail(email);
+    }
+
 
     @GetMapping(value = "/private")
     public Message privateEndpoint() {

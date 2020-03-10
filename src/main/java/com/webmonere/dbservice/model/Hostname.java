@@ -19,8 +19,8 @@ public class Hostname {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(columnDefinition = "serial") // postgresql
-    private Long  hostname_id;
+    @Column(columnDefinition = "serial",name = "hostname_id") // postgresql
+    private Long hostnameId;
     @Column(nullable = false)
     private String hostname;
 

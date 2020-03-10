@@ -13,6 +13,7 @@ import java.util.List;
 public interface HostNameMappingRepository extends CrudRepository<Hostmapping,Long> {
 
     List<Hostmapping>findByhostnameId(Long hostname_id);
+    List<Hostmapping>findByUserId(Long user_id);
 
 
 }

@@ -2,9 +2,11 @@ package com.webmonere.dbservice;
 
 
 import com.webmonere.dbservice.model.Hostmapping;
+import com.webmonere.dbservice.model.Hostname;
 import com.webmonere.dbservice.model.Message;
 import com.webmonere.dbservice.model.User;
 import com.webmonere.dbservice.repository.HostNameMappingRepository;
+import com.webmonere.dbservice.repository.HostNameRepository;
 import com.webmonere.dbservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,6 +24,8 @@ public class APIController {
     HostNameMappingRepository hostNameMappingRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    HostNameRepository hostNameRepository;
 
     @GetMapping(value = "/uids/{hostnameid}")
     public ArrayList<String> getAllUserIds(@PathVariable String hostnameid) {
@@ -41,9 +45,25 @@ public class APIController {
         return hostNameMappingRepository.findByhostnameId(Long.parseLong(hostnameid));
     }
 
-    @GetMapping(value ="/email/{email}")
-    public User getUserByEmail(@PathVariable String email){
+    @GetMapping(value = "/email/{email}")
+    public User getUserByEmail(@PathVariable String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @GetMapping(value = "/hostnamesbyid/{userid}")
+    public List<Hostname> getAllHostNamesId(@PathVariable Long userid) {
+        ArrayList<Hostname> hostnames = new ArrayList<>();
+        List<Hostmapping> hostmappings;
+        hostmappings = hostNameMappingRepository.findByUserId(userid);
+        for (Hostmapping hm : hostmappings) {
+
+            Hostname hostname = hostNameRepository.findByHostnameId(hm.getHostnameId());
+            hostnames.add(hostname);
+        }
+
+
+        return hostnames;
+
     }
 
 
